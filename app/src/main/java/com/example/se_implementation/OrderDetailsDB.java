@@ -14,9 +14,11 @@ public class OrderDetailsDB extends SQLiteOpenHelper {
     public static final String PART_COLUMN_NAME = "part";
     public static final String PART_COLUMN_CATEGORY = "category";
     public static final String PART_COLUMN_PRODUCER = "producer";
+    public static final String PART_COLUMN_RATING = "rating";
     public static final String PART_COLUMN_NREVIEWS = "number_of_reviews";
     public static final String DEADLINE_COLUMN_DATE = "deadline";
     public static final String PERSONAL_NOTE_COLUMN = "personal_note";
+    public static final String WORKS_COLUMN_ID = "work_id";
 
     public OrderDetailsDB(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -25,15 +27,17 @@ public class OrderDetailsDB extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE " + ORDER_DETAILS_TABLE_NAME + " (" +
-                PART_COLUMN_ID + " TEXT NOT NULL, " +
+                PART_COLUMN_ID + " ID PRIMARY KEY AUTOINCREMENT, " +
                 PART_COLUMN_NAME + " TEXT NOT NULL, " +
                 PART_COLUMN_CATEGORY + " TEXT NOT NULL, " +
                 PART_COLUMN_PRODUCER + " TEXT, " +
-                PART_COLUMN_NREVIEWS + " TEXT, " +
-                DEADLINE_COLUMN_DATE + " TEXT, " +
-                PERSONAL_NOTE_COLUMN + " TEXT NOT NULL, " +
+                PART_COLUMN_RATING + " TEXT, " +
+                PART_COLUMN_NREVIEWS + " INT, " +
+                DEADLINE_COLUMN_DATE + " DATE, " +
+                PERSONAL_NOTE_COLUMN + "TEXT, " +
+                WORKS_COLUMN_ID + " TEXT NOT NULL, " +
                 "PRIMARY KEY (" + PART_COLUMN_ID + ")," +
-                "FOREIGN KEY (" + PERSONAL_NOTE_COLUMN + ") REFERENCES " + ORDER_DETAILS_TABLE_NAME + " (" + PART_COLUMN_ID + ")" +
+                "FOREIGN KEY (" + WORKS_COLUMN_ID + ") REFERENCES " + ORDER_DETAILS_TABLE_NAME + " (" + PART_COLUMN_ID + ")" +
                 ")");
     }
 
@@ -43,7 +47,7 @@ public class OrderDetailsDB extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    boolean addEmployee(String id, String part, String category, String producer, String number_of_reviews, String deadline, String personal_note){
+    boolean addEmployee(String id, String part, String category, String producer, String rating, String number_of_reviews, String deadline, String personal_note, String work_id){
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
         ContentValues contentValues = new ContentValues();
@@ -51,9 +55,11 @@ public class OrderDetailsDB extends SQLiteOpenHelper {
         contentValues.put(PART_COLUMN_NAME, part);
         contentValues.put(PART_COLUMN_CATEGORY, category);
         contentValues.put(PART_COLUMN_PRODUCER, producer);
+        contentValues.put(PART_COLUMN_RATING, rating);
         contentValues.put(PART_COLUMN_NREVIEWS, number_of_reviews);
         contentValues.put(DEADLINE_COLUMN_DATE, deadline);
         contentValues.put(PERSONAL_NOTE_COLUMN, personal_note);
+        contentValues.put(WORKS_COLUMN_ID, work_id);
 
         return sqLiteDatabase.insert(ORDER_DETAILS_TABLE_NAME, null, contentValues) != -1;
     }
@@ -66,10 +72,10 @@ public class OrderDetailsDB extends SQLiteOpenHelper {
     Cursor getAllEmployees(String ownerId) {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         return sqLiteDatabase.rawQuery("SELECT * FROM " + ORDER_DETAILS_TABLE_NAME
-                + " WHERE " + PERSONAL_NOTE_COLUMN + "=" + ownerId, null);
+                + " WHERE " + WORKS_COLUMN_ID + "=" + ownerId, null);
     }
 
-    boolean updateEmployee(String id, String part, String category, String producer, String number_of_reviews, String deadline, String personal_note) {
+    boolean updateEmployee(String id, String part, String category, String producer, String rating, String number_of_reviews, String deadline, String personal_note, String work_id) {
 
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -77,9 +83,11 @@ public class OrderDetailsDB extends SQLiteOpenHelper {
         contentValues.put(PART_COLUMN_NAME, part);
         contentValues.put(PART_COLUMN_CATEGORY, category);
         contentValues.put(PART_COLUMN_PRODUCER, producer);
+        contentValues.put(PART_COLUMN_RATING, rating);
         contentValues.put(PART_COLUMN_NREVIEWS, number_of_reviews);
         contentValues.put(DEADLINE_COLUMN_DATE, deadline);
         contentValues.put(PERSONAL_NOTE_COLUMN, personal_note);
+        contentValues.put(WORKS_COLUMN_ID, work_id);
         return sqLiteDatabase.update(ORDER_DETAILS_TABLE_NAME, contentValues,
                 PART_COLUMN_ID + "=?",
                 new String[] { id }) == 1;
