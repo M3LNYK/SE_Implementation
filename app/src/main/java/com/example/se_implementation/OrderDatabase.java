@@ -36,8 +36,16 @@ public abstract class OrderDatabase extends RoomDatabase {
     private static class PopulateDBAsyncTask extends AsyncTask<Void, Void, Void> {
         private OrderDao orderDao;
 
+        private PopulateDBAsyncTask(OrderDatabase db) {
+            orderDao = db.orderDao();
+        }
+
         @Override
         protected Void doInBackground(Void... voids) {
+            orderDao.insert(new Order("BMW", "3 series",
+                    "Destroyed rear tires"));
+            orderDao.insert((new Order("Opel", "Astra Diesel",
+                    "Does not start")));
             return null;
         }
     }
