@@ -16,7 +16,7 @@ public abstract class OrderDatabase extends RoomDatabase {
     public static synchronized OrderDatabase getInstance(Context context) {
         if(instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(),
-                    OrderDatabase.class, "order_databse")
+                    OrderDatabase.class, "order_database")
                     .fallbackToDestructiveMigration()
                     .build();
         }
