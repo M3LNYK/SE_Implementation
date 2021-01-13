@@ -14,8 +14,6 @@ public class OrderDetailsDB extends SQLiteOpenHelper {
     public static final String PART_COLUMN_NAME = "part";
     public static final String PART_COLUMN_CATEGORY = "category";
     public static final String PART_COLUMN_PRODUCER = "producer";
-    public static final String PART_COLUMN_RATING = "rating";
-    public static final String PART_COLUMN_NREVIEWS = "number_of_reviews";
 //    public static final String DEADLINE_COLUMN_DATE = "deadline";
 //    public static final String PERSONAL_NOTE_COLUMN = "personal_note";
     public static final String WORKS_COLUMN_ID = "work_id";
@@ -31,8 +29,6 @@ public class OrderDetailsDB extends SQLiteOpenHelper {
                 PART_COLUMN_NAME + " TEXT NOT NULL, " +
                 PART_COLUMN_CATEGORY + " TEXT NOT NULL, " +
                 PART_COLUMN_PRODUCER + " TEXT, " +
-                PART_COLUMN_RATING + " TEXT, " +
-                PART_COLUMN_NREVIEWS + " INT, " +
 //                DEADLINE_COLUMN_DATE + " DATE, " +
 //                PERSONAL_NOTE_COLUMN + "TEXT, " +
                 WORKS_COLUMN_ID + " TEXT NOT NULL, " +
@@ -53,7 +49,7 @@ public class OrderDetailsDB extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    boolean addPart(String id, String part, String category, String producer, String rating, String number_of_reviews, String deadline, String personal_note, String work_id){
+    boolean addPart(String id, String part, String category, String producer, String rating){
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
         ContentValues contentValues = new ContentValues();
@@ -61,11 +57,9 @@ public class OrderDetailsDB extends SQLiteOpenHelper {
         contentValues.put(PART_COLUMN_NAME, part);
         contentValues.put(PART_COLUMN_CATEGORY, category);
         contentValues.put(PART_COLUMN_PRODUCER, producer);
-        contentValues.put(PART_COLUMN_RATING, rating);
-        contentValues.put(PART_COLUMN_NREVIEWS, number_of_reviews);
 //        contentValues.put(DEADLINE_COLUMN_DATE, deadline);
 //        contentValues.put(PERSONAL_NOTE_COLUMN, personal_note);
-        contentValues.put(WORKS_COLUMN_ID, work_id);
+//        contentValues.put(WORKS_COLUMN_ID, work_id);
 
         return sqLiteDatabase.insert(ORDER_DETAILS_TABLE_NAME, null, contentValues) != -1;
     }
@@ -89,8 +83,6 @@ public class OrderDetailsDB extends SQLiteOpenHelper {
         contentValues.put(PART_COLUMN_NAME, part);
         contentValues.put(PART_COLUMN_CATEGORY, category);
         contentValues.put(PART_COLUMN_PRODUCER, producer);
-        contentValues.put(PART_COLUMN_RATING, rating);
-        contentValues.put(PART_COLUMN_NREVIEWS, number_of_reviews);
 //        contentValues.put(DEADLINE_COLUMN_DATE, deadline);
 //        contentValues.put(PERSONAL_NOTE_COLUMN, personal_note);
         contentValues.put(WORKS_COLUMN_ID, work_id);
