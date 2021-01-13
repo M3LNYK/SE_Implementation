@@ -21,6 +21,7 @@ public abstract class OrderDatabase extends RoomDatabase {
             instance = Room.databaseBuilder(context.getApplicationContext(),
                     OrderDatabase.class, "order_database")
                     .fallbackToDestructiveMigration()
+                    .addCallback(roomCallback)
                     .build();
         }
         return instance;
@@ -30,6 +31,7 @@ public abstract class OrderDatabase extends RoomDatabase {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
+            new PopulateDBAsyncTask(instance).execute();
         }
     };
 
