@@ -1,47 +1,49 @@
 package com.example.se_implementation;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.Button;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 public class OrderDetailsActivity extends AppCompatActivity {
-    private SectionsPagerAdapter mSectionsPagerAdapter;
-    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_details);
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
 
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-        FloatingActionButton fab = findViewById(R.id.fab);
+//        FloatingActionButton fab = findViewById(R.id.fab);
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "There should be given an option to add something", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        Button button = findViewById(R.id.fab);
+        button.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), AddPartActivity.class)));
+
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "There should be given an option to add something", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
     }
 
-    public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
+    public static class SectionsPagerAdapter extends FragmentStatePagerAdapter {
 
-        public SectionsPagerAdapter(OrderDetailsActivity orderDetailsActivity, FragmentManager fm) { super(fm);}
+        public SectionsPagerAdapter(FragmentManager fm) { super(fm);}
 
+        @NonNull
         @Override
         public Fragment getItem(int position){
             Fragment fragment = null;
