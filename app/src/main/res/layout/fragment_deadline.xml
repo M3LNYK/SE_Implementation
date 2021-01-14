@@ -11,12 +11,14 @@
         android:layout_height="match_parent" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:id="@+id/textTitle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Previously confirmed date:"
         android:outlineAmbientShadowColor="@color/black"
-        android:textSize="24dp"
+        android:textSize="28dp"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
         android:textColor="@color/black"
         android:paddingTop="10dp"
         android:paddingLeft="20dp"
@@ -24,15 +26,16 @@
         />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textViewDate"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="140dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:gravity="center"
         android:textSize="28dp"
         android:textColor="@color/black"
-        android:text="24 January 2021"
+        android:text="28th of January 2021"
         />
 
     <Button
@@ -40,12 +43,12 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp"
         android:layout_marginTop="300dp"
-        android:textSize="24dp"
+        android:layout_marginRight="100dp"
+        android:paddingTop="10dp"
         android:text="Change"
         android:textColor="@color/white"
-        android:paddingTop="10dp"
-        />
+        android:backgroundTint="#ac4b1c"
+        android:textSize="24dp" />
 
 </FrameLayout>

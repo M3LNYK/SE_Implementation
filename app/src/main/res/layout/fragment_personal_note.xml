@@ -11,7 +11,7 @@
         android:layout_height="match_parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textViewNote"
         android:layout_width="157dp"
         android:layout_height="66dp"
         android:outlineAmbientShadowColor="@color/black"
@@ -29,7 +29,8 @@
         android:layout_marginTop="300dp"
         android:textSize="24dp"
         android:text="Modify"
-        android:textColor="@color/white"
+        android:backgroundTint="#fddb3a"
+        android:textColor="@color/black"
         android:paddingLeft="15dp"
         android:paddingTop="10dp"
         />
@@ -43,13 +44,15 @@
         android:layout_marginTop="300dp"
         android:textSize="24dp"
         android:text="Add"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
+        android:backgroundTint="#00af91"
         android:paddingLeft="5dp"
         android:paddingTop="10dp"
         />
 
-    <TextView
-        android:id="@+id/textView"
+
+    <EditText
+        android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="185dp"
         android:layout_marginTop="100dp"
@@ -57,6 +60,8 @@
         android:layout_marginRight="20dp"
         android:textSize="24dp"
         android:hint="Enter your note here"
-        android:text="" />
+        android:text=""
+        />
+
 
 </FrameLayout>
