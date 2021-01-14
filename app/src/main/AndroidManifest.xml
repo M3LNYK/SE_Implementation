@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Day">
         <activity android:name=".MyOrders"></activity>
+        <activity android:name=".OrderDetailsActivity"></activity>
+        <activity android:name=".AddPartActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
