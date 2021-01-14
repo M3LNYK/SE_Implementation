@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.Toast;
@@ -18,6 +20,13 @@ public class MyOrders extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_orders);
 
+        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
+
+        OrderAdapter adapter = new OrderAdapter();
+        recyclerView.setAdapter(adapter);
+
         orderViewModel = new ViewModelProvider(this,
                 ViewModelProvider.AndroidViewModelFactory.getInstance(
                         this.getApplication())).get(OrderViewModel.class);
@@ -26,7 +35,8 @@ public class MyOrders extends AppCompatActivity {
             @Override
             public void onChanged(List<Order> orders) {
                 //Update RecyclerView
-                Toast.makeText(MyOrders.this,  "onChanged", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MyOrders.this,  "onChanged", Toast.LENGTH_SHORT).show();
+                adapter.setOrders(orders);
             }
         });
     }
