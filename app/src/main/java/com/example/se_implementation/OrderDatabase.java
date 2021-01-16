@@ -44,10 +44,11 @@ public abstract class OrderDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            orderDao.insert(new Order("BMW", "3 series",
-                    "Destroyed rear tires"));
+            orderDao.insert(new Order("Car Brand Example", "Car Model Example",
+                    "Description Example"));
             orderDao.insert((new Order("Opel", "Astra Diesel",
                     "Does not start")));
+            orderDao.insert(new Order("3rd Brand", "3rd model", "3rd Descr."));
             return null;
         }
     }

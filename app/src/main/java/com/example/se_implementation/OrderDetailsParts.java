@@ -32,9 +32,13 @@ public class OrderDetailsParts {
         return id;
     }
 
-    public String getPart() {
+    public String getPart_name() {
         return part_name;
     }
+// Gave compile error for using this getter, created the one above
+//    public String getPart() {
+//        return part_name;
+//    }
 
     public String getCategory() {
         return category;
