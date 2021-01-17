@@ -7,6 +7,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -14,8 +15,10 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.Toast;
 
 public class OrderDetailsActivity extends AppCompatActivity {
+    public static final int ADD_PART_REQUEST = 1;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
 
@@ -38,9 +41,29 @@ public class OrderDetailsActivity extends AppCompatActivity {
 //                Snackbar.make(view, "There should be given an option to add something", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
                 Intent intent = new Intent(OrderDetailsActivity.this, AddPartActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, ADD_PART_REQUEST);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == ADD_PART_REQUEST && resultCode == RESULT_OK){
+            assert data != null;
+            String name = data.getStringExtra(AddPartActivity.EXTRA_NAME);
+            String category = data.getStringExtra(AddPartActivity.EXTRA_CATEGORY);
+            String producer = data.getStringExtra(AddPartActivity.EXTRA_PRODUCER);
+
+            OrderDetailsParts parts = new OrderDetailsParts(name, category, producer);
+//            OrderDetailsPartsViewModel.insert(parts);
+
+            Toast.makeText(this, "Part added", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(this, "Part wasn't added", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
