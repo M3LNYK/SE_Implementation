@@ -88,6 +88,30 @@
             android:text="category"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
+        <TextView
+            android:id="@+id/text_producer_part"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_category_part"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:text="Produced by: "
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <TextView
+            android:id="@+id/text_view_producer_part"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_category_part"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_toEndOf="@id/text_producer_part"
+            android:layout_toRightOf="@id/text_producer_part"
+            android:ellipsize="end"
+            android:text="producer"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
 
         <Button
             android:id="@+id/button_delete_part"
