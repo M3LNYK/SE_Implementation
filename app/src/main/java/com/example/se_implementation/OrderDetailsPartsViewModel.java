@@ -9,7 +9,7 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 public class OrderDetailsPartsViewModel extends AndroidViewModel {
-    private OrderDetailsPartsRepository repository;
+    protected OrderDetailsPartsRepository repository;
     private LiveData<List<OrderDetailsParts>> allParts;
 
      public OrderDetailsPartsViewModel(@NonNull Application application) {
