@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Toast;
 
 public class OrderDetailsActivity extends AppCompatActivity {
+    private DeadlineFragment deadlineFragment;
     public static final int ADD_PART_REQUEST = 1;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
@@ -35,6 +36,8 @@ public class OrderDetailsActivity extends AppCompatActivity {
 
         FloatingActionButton fab = findViewById(R.id.fab);
 
+        deadlineFragment = new DeadlineFragment();
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,26 +47,6 @@ public class OrderDetailsActivity extends AppCompatActivity {
                 startActivityForResult(intent, ADD_PART_REQUEST);
             }
         });
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if(requestCode == ADD_PART_REQUEST && resultCode == RESULT_OK){
-            assert data != null;
-            String name = data.getStringExtra(AddPartActivity.EXTRA_NAME);
-            String category = data.getStringExtra(AddPartActivity.EXTRA_CATEGORY);
-            String producer = data.getStringExtra(AddPartActivity.EXTRA_PRODUCER);
-
-            OrderDetailsParts parts = new OrderDetailsParts(name, category, producer);
-//            OrderDetailsPartsViewModel.insert(parts);
-
-            Toast.makeText(this, "Part added", Toast.LENGTH_SHORT).show();
-        }
-        else{
-            Toast.makeText(this, "Part wasn't added", Toast.LENGTH_SHORT).show();
-        }
     }
 
     public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
