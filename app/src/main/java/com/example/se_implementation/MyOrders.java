@@ -20,6 +20,14 @@ public class MyOrders extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_orders);
 
+        FloatingActionButton buttonAddOrder = findViewById(R.id.button_add_order);
+        buttonAddOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MyOrders.this, "Ability to add orders", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);

@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Day">
         <activity android:name=".add_order_activity"></activity>
-        <activity android:name=".MyOrders" />
+        <activity android:name=".MyOrders"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".OrderDetailsActivity" />
         <activity android:name=".AddPartActivity" />
         <activity android:name=".MainActivity">

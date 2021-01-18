@@ -43,6 +43,10 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderHolder>
         notifyDataSetChanged();
     }
 
+    public Order getOrderAtPosition (int position) {
+        return orders.get(position);
+    }
+
     class OrderHolder extends RecyclerView.ViewHolder{
         private TextView textViewIdNumber;
         private TextView textViewCarBrand;
