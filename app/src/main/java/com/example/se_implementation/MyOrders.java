@@ -1,14 +1,20 @@
 package com.example.se_implementation;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -35,17 +41,25 @@ public class MyOrders extends AppCompatActivity {
         OrderAdapter adapter = new OrderAdapter();
         recyclerView.setAdapter(adapter);
 
-        orderViewModel = new ViewModelProvider(this,
-                ViewModelProvider.AndroidViewModelFactory.getInstance(
-                        this.getApplication())).get(OrderViewModel.class);
-
-        orderViewModel.getAllOrders().observe(this, new Observer<List<Order>>() {
-            @Override
-            public void onChanged(List<Order> orders) {
-                //Update RecyclerView
-                //Toast.makeText(MyOrders.this,  "onChanged", Toast.LENGTH_SHORT).show();
-                adapter.setOrders(orders);
-            }
+        orderViewModel = ViewModelProviders.of(this).get(OrderViewModel.class);
+        orderViewModel.getAllOrders().observe(this, orders -> {
+            //Update RecyclerView
+            //Toast.makeText(MyOrders.this,  "onChanged", Toast.LENGTH_SHORT).show();
+            adapter.setOrders(orders);
         });
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
+                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                orderViewModel.delete(adapter.getOrderAtPosition(viewHolder.getAdapterPosition()));
+                Toast.makeText(MyOrders.this, "Order Completed", Toast.LENGTH_SHORT).show();
+            }
+        }).attachToRecyclerView(recyclerView);
     }
 }
