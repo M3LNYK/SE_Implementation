@@ -53,6 +53,7 @@ public abstract class OrderDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
+            orderDao.deleteAllOrders();
             orderDao.insert(new Order("Car Brand Example", "Car Model Example",
                     "Description Example"));
             orderDao.insert((new Order("Opel", "Astra Diesel",
