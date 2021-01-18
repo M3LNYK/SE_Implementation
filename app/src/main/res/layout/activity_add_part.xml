@@ -55,7 +55,7 @@
         android:layout_marginStart="60dp"
         android:layout_marginEnd="60dp"
         android:layout_marginBottom="70dp"
-        android:background="@drawable/catalog_button"
+        android:background="@drawable/statistics_button"
         android:textAllCaps="false"
         android:textSize="20sp"
         app:layout_constraintHorizontal_bias="0.9"
