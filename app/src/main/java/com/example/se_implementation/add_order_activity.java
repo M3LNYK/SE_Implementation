@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class add_order_activity extends AppCompatActivity {
-    public static final String EXTR
 
     private EditText editTextCarBrand;
     private EditText editTextCarModel;
