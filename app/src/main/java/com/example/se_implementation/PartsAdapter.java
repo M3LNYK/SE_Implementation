@@ -41,6 +41,10 @@ public class PartsAdapter extends RecyclerView.Adapter<PartsAdapter.PartsHolder>
         notifyDataSetChanged();
     }
 
+    public Part getPartAt(int position) {
+        return parts.get(position);
+    }
+
     class PartsHolder extends RecyclerView.ViewHolder {
 //        private TextView textViewId;
         private TextView textViewName;
