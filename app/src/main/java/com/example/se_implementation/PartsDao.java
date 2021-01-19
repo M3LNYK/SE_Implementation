@@ -13,17 +13,17 @@ import java.util.List;
 public interface PartsDao {
 
     @Insert
-    void insert(Parts parts);
+    void insert(Part part);
 
     @Update
-    void update(Parts parts);
+    void update(Part part);
 
     @Delete
-    void delete(Parts parts);
+    void delete(Part part);
 
-    @Query("DELETE FROM PARTS_TABLE")
+    @Query("DELETE FROM parts_table")
     void deleteAllParts();
 
-    @Query("SELECT * FROM PARTS_TABLE ORDER BY category")
-    LiveData<List<Parts>>  getAllParts() ;
+    @Query("SELECT * FROM parts_table ORDER BY category")
+    LiveData<List<Part>>  getAllParts() ;
 }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PartsAdapter extends RecyclerView.Adapter<PartsAdapter.PartsHolder> {
-    private List<Parts> parts = new ArrayList<>();
+    private List<Part> parts = new ArrayList<>();
 
     @NonNull
     @Override
@@ -24,7 +24,7 @@ public class PartsAdapter extends RecyclerView.Adapter<PartsAdapter.PartsHolder>
 
     @Override
     public void onBindViewHolder(@NonNull PartsHolder holder, int position) {
-        Parts currentPart = parts.get(position);
+        Part currentPart = parts.get(position);
 //        holder.textViewId.setText(currentPart.getId());
         holder.textViewName.setText(currentPart.getPart_name());
         holder.textViewCategory.setText(currentPart.getCategory());
@@ -36,7 +36,7 @@ public class PartsAdapter extends RecyclerView.Adapter<PartsAdapter.PartsHolder>
         return parts.size();
     }
 
-    public void setParts(List<Parts> parts){
+    public void setParts(List<Part> parts){
         this.parts = parts;
         notifyDataSetChanged();
     }

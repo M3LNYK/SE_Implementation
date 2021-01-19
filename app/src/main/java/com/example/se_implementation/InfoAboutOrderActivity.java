@@ -1,15 +1,10 @@
 package com.example.se_implementation;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.AbsListView;
-import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,9 +27,9 @@ public class InfoAboutOrderActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         partsViewModel = ViewModelProviders.of(this).get(PartsViewModel.class);
-        partsViewModel.getAllParts().observe(this, new Observer<List<Parts>>() {
+        partsViewModel.getAllParts().observe(this, new Observer<List<Part>>() {
             @Override
-            public void onChanged(List<Parts> parts) {
+            public void onChanged(List<Part> parts) {
                 adapter.setParts(parts);
             }
         });

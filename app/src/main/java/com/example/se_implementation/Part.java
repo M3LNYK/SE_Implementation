@@ -10,22 +10,21 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "parts_table")
-public class Parts {
+public class Part {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String part_name;
     private String category;
     private String producer;
 
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Parts(String part_name, String category, String producer) {
+    public Part(String part_name, String category, String producer) {
         this.part_name = part_name;
         this.category = category;
         this.producer = producer;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId() {
@@ -35,10 +34,6 @@ public class Parts {
     public String getPart_name() {
         return part_name;
     }
-// Gave compile error for using this getter, created the one above
-//    public String getPart() {
-//        return part_name;
-//    }
 
     public String getCategory() {
         return category;

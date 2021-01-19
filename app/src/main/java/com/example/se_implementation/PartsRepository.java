@@ -9,43 +9,44 @@ import java.util.List;
 
 public class PartsRepository {
     private PartsDao partsDao;
-    private LiveData<List<Parts>> allParts;
+    private LiveData<List<Part>> allParts;
 
     public PartsRepository(Application application){
          PartsDatabase database = PartsDatabase.getInstance(application);
-         partsDao = database.orderDetailsPartsDao();
+         partsDao = database.partsDao();
          allParts = partsDao.getAllParts();
     }
-    public void insert(Parts parts){
-        new InsertPartAsyncTask(partsDao).execute(parts);
+    public void insert(Part part){
+        new InsertPartAsyncTask(partsDao).execute(part);
     }
-    public void update(Parts parts){
-        new UpdatePartAsyncTask(partsDao).execute(parts);
+    public void update(Part part){
+        new UpdatePartAsyncTask(partsDao).execute(part);
     }
-    public void delete(Parts parts){
-        new DeletePartAsyncTask(partsDao).execute(parts);
+    public void delete(Part part){
+        new DeletePartAsyncTask(partsDao).execute(part);
     }
     public void deleteAllParts(){
         new DeleteAllPartAsyncTask(partsDao).execute();
     }
-    public LiveData<List<Parts>> getAllParts(){
+    public LiveData<List<Part>> getAllParts(){
         return allParts;
     }
-    private static class InsertPartAsyncTask extends AsyncTask<Parts, Void, Void>{
+
+    private static class InsertPartAsyncTask extends AsyncTask<Part, Void, Void>{
         private PartsDao partsDao;
 
         private InsertPartAsyncTask(PartsDao partsDao){
             this.partsDao = partsDao;
         }
-
+ 
         @Override
-        protected Void doInBackground(Parts... parts){
+        protected Void doInBackground(Part... parts){
             partsDao.insert(parts[0]);
             return null;
         }
     }
 
-    private static class UpdatePartAsyncTask extends AsyncTask<Parts, Void, Void>{
+    private static class UpdatePartAsyncTask extends AsyncTask<Part, Void, Void>{
         private PartsDao partsDao;
 
         private UpdatePartAsyncTask(PartsDao partsDao){
@@ -53,13 +54,13 @@ public class PartsRepository {
         }
 
         @Override
-        protected Void doInBackground(Parts... parts){
+        protected Void doInBackground(Part... parts){
             partsDao.update( parts[0]);
             return null;
         }
     }
 
-    private static class DeletePartAsyncTask extends AsyncTask<Parts, Void, Void>{
+    private static class DeletePartAsyncTask extends AsyncTask<Part, Void, Void>{
         private PartsDao partsDao;
 
         private DeletePartAsyncTask(PartsDao partsDao){
@@ -67,7 +68,7 @@ public class PartsRepository {
         }
 
         @Override
-        protected Void doInBackground(Parts... parts){
+        protected Void doInBackground(Part... parts){
             partsDao.delete(parts[0]);
             return null;
         }

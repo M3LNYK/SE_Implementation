@@ -25,9 +25,9 @@ public class MyParts extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         partsViewModel = ViewModelProviders.of(this).get(PartsViewModel.class);
-        partsViewModel.getAllParts().observe(this, new Observer<List<Parts>>() {
+        partsViewModel.getAllParts().observe(this, new Observer<List<Part>>() {
             @Override
-            public void onChanged(List<Parts> parts) {
+            public void onChanged(List<Part> parts) {
                 adapter.setParts(parts);
             }
         });
