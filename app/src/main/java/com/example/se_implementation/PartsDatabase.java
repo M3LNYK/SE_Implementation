@@ -5,24 +5,21 @@ import android.os.AsyncTask;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;
-import androidx.room.DatabaseConfiguration;
-import androidx.room.InvalidationTracker;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
-import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
-@Database(entities = {OrderDetailsParts.class}, version =  1)
-public abstract class OrderDetailsPartsDatabase extends RoomDatabase {
+@Database(entities = {Parts.class}, version =  1)
+public abstract class PartsDatabase extends RoomDatabase {
 
-    private static OrderDetailsPartsDatabase instance;
+    private static PartsDatabase instance;
 
-    public abstract OrderDetailsPartsDao orderDetailsPartsDao();
+    public abstract PartsDao orderDetailsPartsDao();
 
-    public static OrderDetailsPartsDatabase getInstance(Context context) {
+    public static PartsDatabase getInstance(Context context) {
         if(instance == null){
              instance = Room.databaseBuilder(context.getApplicationContext(),
-                     OrderDetailsPartsDatabase.class, "parts_database")
+                     PartsDatabase.class, "parts_database")
                      .fallbackToDestructiveMigration().addCallback(roomCallback).build();
         }
         return instance;
@@ -37,15 +34,17 @@ public abstract class OrderDetailsPartsDatabase extends RoomDatabase {
     };
 
     private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void>{
-        private OrderDetailsPartsDao orderDetailsPartsDao;
+        private PartsDao partsDao;
 
-        private PopulateDbAsyncTask(OrderDetailsPartsDatabase db){
-            orderDetailsPartsDao = db.orderDetailsPartsDao();
+        private PopulateDbAsyncTask(PartsDatabase db){
+            partsDao = db.orderDetailsPartsDao();
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
-            orderDetailsPartsDao.insert(new OrderDetailsParts("detail", "category", "producer"));
+            partsDao.insert(new Parts("detail1", "category1", "producer1"));
+            partsDao.insert(new Parts("detail2", "category2", "producer2"));
+            partsDao.insert(new Parts("detail3", "category3", "producer3"));
             return null;
         }
     }

@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderDetailsPartsAdapter extends RecyclerView.Adapter<OrderDetailsPartsAdapter.PartsHolder> {
-    private List<OrderDetailsParts> partsList = new ArrayList<>();
+public class PartsAdapter extends RecyclerView.Adapter<PartsAdapter.PartsHolder> {
+    private List<Parts> parts = new ArrayList<>();
 
     @NonNull
     @Override
@@ -24,8 +24,8 @@ public class OrderDetailsPartsAdapter extends RecyclerView.Adapter<OrderDetailsP
 
     @Override
     public void onBindViewHolder(@NonNull PartsHolder holder, int position) {
-        OrderDetailsParts currentPart = partsList.get(position);
-        holder.textViewId.setText(currentPart.getId());
+        Parts currentPart = parts.get(position);
+//        holder.textViewId.setText(currentPart.getId());
         holder.textViewName.setText(currentPart.getPart_name());
         holder.textViewCategory.setText(currentPart.getCategory());
         holder.textViewProducer.setText(currentPart.getProducer());
@@ -33,23 +33,23 @@ public class OrderDetailsPartsAdapter extends RecyclerView.Adapter<OrderDetailsP
 
     @Override
     public int getItemCount() {
-        return partsList.size();
+        return parts.size();
     }
 
-    public void setParts(List<OrderDetailsParts> orderDetailsParts){
-        this.partsList = orderDetailsParts;
+    public void setParts(List<Parts> parts){
+        this.parts = parts;
         notifyDataSetChanged();
     }
 
     class PartsHolder extends RecyclerView.ViewHolder {
-        private TextView textViewId;
+//        private TextView textViewId;
         private TextView textViewName;
         private TextView textViewCategory;
         private TextView textViewProducer;
 
          public PartsHolder(@NonNull View itemView) {
             super(itemView);
-            textViewId = itemView.findViewById(R.id.text_view_id_part);
+//            textViewId = itemView.findViewById(R.id.text_view_id_part);
             textViewName = itemView.findViewById(R.id.text_view_name_part);
             textViewCategory = itemView.findViewById(R.id.text_view_category_part);
             textViewProducer = itemView.findViewById(R.id.text_view_producer_part);

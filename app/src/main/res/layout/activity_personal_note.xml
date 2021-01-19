@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp"
+    android:paddingHorizontal="20dp"
+    tools:context=".PersonalNoteActivity">
+
+
+    <TextView
+        android:id="@+id/textViewNote"
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:outlineAmbientShadowColor="@color/black"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:text="Note:"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="20dp" />
+
+
+    <Button
+        android:id="@+id/buttonModify"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="40dp"
+        android:backgroundTint="#fddb3a"
+        android:paddingHorizontal="30dp"
+        android:paddingTop="10dp"
+        android:text="Modify"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="500dp" />
+
+    <Button
+        android:id="@+id/buttonAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:backgroundTint="#00af91"
+        android:paddingTop="10dp"
+        android:paddingHorizontal="50dp"
+        android:text="Add"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        android:paddingRight="30dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="220dp"
+        tools:layout_editor_absoluteY="500dp" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:hint="Enter your note here"
+        android:text=""
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.344"
+        tools:layout_editor_absoluteX="0dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
