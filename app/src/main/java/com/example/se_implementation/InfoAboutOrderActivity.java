@@ -1,7 +1,9 @@
 package com.example.se_implementation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.AbsListView;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -36,5 +38,6 @@ public class InfoAboutOrderActivity extends AppCompatActivity {
                 adapter.setParts(parts);
             }
         });
+
     }
 }

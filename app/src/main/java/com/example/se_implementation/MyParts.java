@@ -16,9 +16,9 @@ public class MyParts extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_details);
+        setContentView(R.layout.activity_info_about_order);
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerViewStatistics);
+        RecyclerView recyclerView = findViewById(R.id.recycler_view_parts_info);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         PartsAdapter adapter = new PartsAdapter();

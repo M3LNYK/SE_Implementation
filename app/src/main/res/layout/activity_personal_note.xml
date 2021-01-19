@@ -17,7 +17,7 @@
         android:outlineAmbientShadowColor="@color/black"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
-        android:text="Note:"
+        android:text="Note: "
         android:gravity="center"
         android:textColor="@color/black"
         android:textSize="40dp"

@@ -65,7 +65,7 @@ public class MyOrders extends AppCompatActivity {
     }
 
     public void goToStats(View view) {
-        Intent intent = new Intent(MyOrders.this, OrderDetailsActivity.class);
+        Intent intent = new Intent(MyOrders.this, InfoAboutOrderActivity.class);
         startActivity(intent);
     }
 

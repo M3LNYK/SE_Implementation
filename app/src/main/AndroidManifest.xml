@@ -10,12 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Day">
         <activity android:name=".add_order_activity"></activity>
+        <activity android:name=".DeadlineActivity"></activity>
         <activity android:name=".MyOrders"
             android:parentActivityName=".MainActivity"/>
-        <activity android:name=".OrderDetailsActivity"
-            android:launchMode="singleTop"/>
         <activity android:name=".AddPartActivity"
-            android:parentActivityName=".OrderDetailsActivity" />
+            android:parentActivityName=".InfoAboutOrderActivity" />
         <activity android:name=".InfoAboutOrderActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
