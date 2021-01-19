@@ -9,13 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Day">
-        <activity android:name=".add_order_activity"></activity>
-        <activity android:name=".DeadlineActivity"></activity>
-        <activity android:name=".MyOrders"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".AddPartActivity"
+        <activity android:name=".AddAPartActivity"
             android:parentActivityName=".InfoAboutOrderActivity" />
-        <activity android:name=".InfoAboutOrderActivity" />
+        <activity android:name=".add_order_activity" />
+        <activity android:name=".DeadlineActivity" />
+        <activity
+            android:name=".MyOrders"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".InfoAboutOrderActivity"
+            android:launchMode="singleTop"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
