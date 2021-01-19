@@ -12,8 +12,10 @@
         <activity android:name=".add_order_activity"></activity>
         <activity android:name=".MyOrders"
             android:parentActivityName=".MainActivity"/>
-        <activity android:name=".OrderDetailsActivity" />
-        <activity android:name=".AddPartActivity" />
+        <activity android:name=".OrderDetailsActivity"
+            android:launchMode="singleTop"/>
+        <activity android:name=".AddPartActivity"
+            android:parentActivityName=".OrderDetailsActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
