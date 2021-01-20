@@ -50,6 +50,15 @@ public class InfoAboutOrderActivity extends AppCompatActivity {
             }
         });
 
+        Button buttonPersonalNote = findViewById(R.id.button_personal_note);
+        buttonPersonalNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InfoAboutOrderActivity.this, PersonalNoteActivity.class);
+                startActivity(intent);
+            }
+        });
+
         RecyclerView recyclerView = findViewById(R.id.recycler_view_parts_info);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
