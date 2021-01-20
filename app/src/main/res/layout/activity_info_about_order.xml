@@ -17,27 +17,27 @@
         android:text="All information about the order:"
         android:textColor="@color/black"
         android:textSize="26dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_deadline"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.221"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/button_deadline"
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/statistics_button"
-        android:text="Deadline"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingHorizontal="20dp"
+        android:text="Check or change the deadline"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_view_parts_info"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.111" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle1"
+        app:layout_constraintVertical_bias="0.404" />
 
     <Button
         android:id="@+id/button_personal_note"
-        android:layout_width="150dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
@@ -46,16 +46,17 @@
         android:text="Personal note"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.212"
+        app:layout_constraintHorizontal_bias="0.232"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recycler_view_parts_info"
-        app:layout_constraintVertical_bias="0.96" />
+        app:layout_constraintVertical_bias="0.532" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_parts_info"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginVertical="140dp"
+        android:layout_marginVertical="130dp"
+        android:layout_marginTop="20dp"
         android:text="TextView"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitle1"
         tools:ignore="MissingConstraints"
@@ -67,11 +68,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity='bottom|end'
+        android:layout_margin="30dp"
         android:src="@drawable/ic_add_part"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="300dp"
-        tools:layout_editor_absoluteY="660dp"
-        android:layout_margin="30dp"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintStart_toEndOf="@+id/button_personal_note"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

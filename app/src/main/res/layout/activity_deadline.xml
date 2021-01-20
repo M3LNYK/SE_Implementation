@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".DeadlineActivity">
 
     <TextView
@@ -14,9 +15,7 @@
         android:layout_marginTop="108dp"
         android:gravity="center"
         android:outlineAmbientShadowColor="@color/black"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="20dp"
+        android:padding="30dp"
         android:text="Previously confirmed date:"
         android:textColor="@color/black"
         android:textSize="28dp"
@@ -29,21 +28,32 @@
     <TextView
         android:id="@+id/textViewDate"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="28th of January 2021"
+        android:text="Here will be confirmed date"
         android:textColor="@color/black"
         android:textSize="28dp"
+        android:padding="20dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonChange"
         app:layout_constraintTop_toBottomOf="@+id/textTitle"
         tools:layout_editor_absoluteX="16dp" />
 
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="30dp"
+        android:inputType="date"
+        android:hint="Enter new date to change deadline"
+        />
+
     <Button
         android:id="@+id/buttonChange"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="80dp"
-        android:layout_marginBottom="172dp"
-        android:backgroundTint="#ac4b1c"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="#db6400"
         android:paddingHorizontal="30dp"
         android:paddingTop="10dp"
         android:text="Change"
@@ -53,4 +63,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Switch
+        android:id="@+id/switch_date_changed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Button
+        android:id="@+id/buttonSaveDate"
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="#61b15a"
+        android:textSize="24dp"
+        android:textColor="@color/white"
+        android:text="Save" />
+
+</LinearLayout>

@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,6 +38,15 @@ public class InfoAboutOrderActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(InfoAboutOrderActivity.this, AddAPartActivity.class);
                 startActivityForResult(intent, ADD_PART_REQUEST);
+            }
+        });
+
+        Button buttonDeadline = findViewById(R.id.button_deadline);
+        buttonDeadline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InfoAboutOrderActivity.this, DeadlineActivity.class);
+                startActivity(intent);
             }
         });
 
