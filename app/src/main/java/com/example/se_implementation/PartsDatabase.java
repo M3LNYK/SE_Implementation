@@ -35,19 +35,6 @@ public abstract class PartsDatabase extends RoomDatabase {
         }
     };
 
-//    private static class OpenedDBAsyncTask extends AsyncTask<Void, Void, Void> {
-//        private PartsDao partsDao;
-//
-//
-//        @Override
-//        protected Void doInBackground(Void... voids) {
-//            partsDao.insert(new Parts("detail1", "category1", "producer1"));
-//            partsDao.insert(new Parts("detail2", "category2", "producer2"));
-//            partsDao.insert(new Parts("detail3", "category3", "producer3"));
-//            return null;
-//        }
-
-
         private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void>{
         private PartsDao partsDao;
 

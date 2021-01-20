@@ -37,6 +37,9 @@ public class PersonalNoteActivity extends AppCompatActivity {
         addChangesB = (Button) findViewById(R.id.buttonAddNote);
         switch2 = (Switch) findViewById(R.id.switch2);
 
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_part);
+        setTitle("Personal note");
+
         modifyB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

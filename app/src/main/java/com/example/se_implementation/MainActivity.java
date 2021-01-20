@@ -16,7 +16,5 @@ public class MainActivity extends AppCompatActivity {
         Button button = (Button) findViewById(R.id.button_list_of_orders);
         button.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), MyOrders.class)));
 
-        Button button1 = (Button) findViewById(R.id.button6);
-        button1.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), InfoAboutOrderActivity.class)));
     }
 }

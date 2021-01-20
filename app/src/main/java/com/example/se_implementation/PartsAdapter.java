@@ -25,7 +25,6 @@ public class PartsAdapter extends RecyclerView.Adapter<PartsAdapter.PartsHolder>
     @Override
     public void onBindViewHolder(@NonNull PartsHolder holder, int position) {
         Part currentPart = parts.get(position);
-//        holder.textViewId.setText(currentPart.getId());
         holder.textViewName.setText(currentPart.getPart_name());
         holder.textViewCategory.setText(currentPart.getCategory());
         holder.textViewProducer.setText(currentPart.getProducer());
@@ -46,14 +45,12 @@ public class PartsAdapter extends RecyclerView.Adapter<PartsAdapter.PartsHolder>
     }
 
     class PartsHolder extends RecyclerView.ViewHolder {
-//        private TextView textViewId;
         private TextView textViewName;
         private TextView textViewCategory;
         private TextView textViewProducer;
 
          public PartsHolder(@NonNull View itemView) {
             super(itemView);
-//            textViewId = itemView.findViewById(R.id.text_view_id_part);
             textViewName = itemView.findViewById(R.id.text_view_name_part);
             textViewCategory = itemView.findViewById(R.id.text_view_category_part);
             textViewProducer = itemView.findViewById(R.id.text_view_producer_part);
