@@ -327,7 +327,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/D:/Apps/Android_SDK/icons/material/materialicons/save/baseline_save_24.xml" />
+                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/save/baseline_save_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -338,8 +338,8 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_save_order" />
-                            <entry key="sourceFile" value="E:\5th Semester\Software\4.1\Used for imp 2\Code" />
+                            <entry key="outputName" value="ic_save_part" />
+                            <entry key="sourceFile" value="/E:\5th Semester\Software\4.1\Used for imp 2\Code" />
                           </map>
                         </option>
                       </PersistentState>
